@@ -1,6 +1,5 @@
 let catDiv = document.querySelector('.cat-container');
 
-// Add two new cooooool cats to this array of objects
 let cats = [{
   image_url: "https://ctl.s6img.com/society6/img/kAPciW3hQA6ukif3iKFlywvzKew/w_700/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/64310f12f3ab4becb301b4debf7c24f7/~~/wizard-cat5794700-prints.jpg",
   age: 2112,
@@ -15,16 +14,20 @@ let cats = [{
   image_url: "https://i.pinimg.com/564x/cd/cf/c6/cdcfc6a44fa8ac71072e9756abea5522.jpg",
   age: 29,
   name: "Rockstar Cat"
+},
+{
+image_url: "https://live.staticflickr.com/95/205837611_c392cb359d_z.jpg",
+age: 40,
+name: "Pimp-Cat"
 }
 ];
 
-
-// This code is LAME and does not fit the cool
-// cat aesthetic. Rewrite it to use a for each
-// loop to render our cool cats to the DOM
-let newCat = document.createElement('div');
-newCat.innerHTML = renderCat(cats[0]);
-catDiv.appendChild(newCat);
+// Loop through each cat and render them to the DOM
+cats.forEach(cat => {
+  let newCat = document.createElement('div');
+  newCat.innerHTML = renderCat(cat);
+  catDiv.appendChild(newCat);
+});
 
 function renderCat(cat) {
   return `
@@ -33,9 +36,9 @@ function renderCat(cat) {
       <img height="180" width="180" src="${cat.image_url}">
     </div>
     <div class="catInfo">
-      <p><strong>Name: </strong>${cat.name}
-      <p><strong>Age: </strong>${cat.age}
+      <p><strong>Name: </strong>${cat.name}</p>
+      <p><strong>Age: </strong>${cat.age}</p>
     </div>
   </div>
-  `
+  `;
 }
